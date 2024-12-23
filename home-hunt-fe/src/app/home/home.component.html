@@ -1,0 +1,18 @@
+<section>
+    <form>
+        <!-- Update the HomeComponent template to include a template variable in the input element called #filter.-->
+        <input type="text" placeholder="Filter by city"  #filter/>
+       <!-- update the component template to attach an event handler to the "Search" button.-->
+        <!--
+          By binding to the click event on the button element, you are able to call the filterResults function. The argument to the function is the value property of the filter template variable. Specifically, the .value property from the input HTML element.
+        -->
+        <button class="primary" type="button" (click)="filteredResults(filter.value)">Search</button>
+    </form>
+</section>
+<section class="results">
+    <app-housing-location 
+    *ngFor="let housingLocation of filteredHouseLocationList"
+    [housingLocation]="housingLocation"
+    ></app-housing-location>
+</section>
+
